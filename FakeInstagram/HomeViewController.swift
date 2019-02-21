@@ -13,6 +13,8 @@ import AlamofireImage
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var posts = [PFObject]()
+    let postsRefreshControl = UIRefreshControl()
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +23,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let returnCell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
         
         let post = posts[indexPath.row]
@@ -53,12 +57,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
+        loadPosts()
+        postsRefreshControl.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
+        tableView.refreshControl = postsRefreshControl
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+//        let query = PFQuery(className: "Post")
+//        query.includeKey("author")
+//        query.limit = 20
+//        query.findObjectsInBackground {(posts, error) in
+//            if posts != nil {
+//                self.posts = posts!
+//                self.tableView.reloadData()
+//            }
+//        }
+        
+    }
+    
+    @ objc func loadPosts() {
         let query = PFQuery(className: "Post")
         query.includeKey("author")
         query.limit = 20
@@ -68,7 +90,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
         }
-        
     }
 
     /*
