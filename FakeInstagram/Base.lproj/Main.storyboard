@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JWp-RH-yQI">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="-543" y="23"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Pastagram-->
         <scene sceneID="PZo-UM-ppw">
             <objects>
                 <viewController id="CT1-2B-ky7" customClass="HomeViewController" customModule="FakeInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +144,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UFY-9L-YlH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KA3-AI-cXh">
+                    <navigationItem key="navigationItem" title="Pastagram" id="KA3-AI-cXh">
                         <barButtonItem key="rightBarButtonItem" title="Post" id="ZWr-6R-1r3">
                             <connections>
                                 <segue destination="ydp-Fc-XY7" kind="presentation" id="Ss5-Kd-YAQ"/>
