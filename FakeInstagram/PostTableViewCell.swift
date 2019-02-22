@@ -14,6 +14,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     
+    // This username label is for the captions part
+    @IBOutlet weak var usernameLabel2: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

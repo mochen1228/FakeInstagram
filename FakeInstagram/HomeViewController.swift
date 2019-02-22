@@ -75,9 +75,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func fillInCell(fill cell: PostTableViewCell, with post: PFObject, using tag: Int) -> Void {
         
         let user = post["author"] as! PFUser
-        cell.usernameLabel.text = user.username as! String
-        cell.captionLabel.text = post["caption"] as! String
-        
+        cell.usernameLabel.text = user.username
+        cell.captionLabel.text = post["caption"] as? String
+        cell.usernameLabel2.text = user.username! + ":"
         let imageFile = post["image"] as! PFFileObject
         let urlString = imageFile.url!
         let url = URL(string: urlString)!
@@ -97,15 +97,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            }
 //        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
