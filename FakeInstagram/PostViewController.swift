@@ -20,8 +20,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var captionField: UITextField!
-    
-    @IBAction func onPost(_ sender: Any) {
+    //captionField.placeholder = "My Placeholder Text"
+
+    @IBAction func onShareButton(_ sender: Any) {
         let post = PFObject(className: "Post")
         
         post["caption"] = captionField.text!
@@ -37,6 +38,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 print("cannot save post")
             }
         }
+    }
+    
+    @IBAction func onCancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCameraButton(_ sender: Any) {

@@ -15,6 +15,7 @@
 import UIKit
 import Parse
 import AlamofireImage
+import MessageInputBar
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,21 +25,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
+    let commentBar = MessageInputBar()
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-        cell.tag = indexPath.row
-        fillInCell(fill: cell, with: post, using: indexPath.row)
-        
-        return cell
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -57,6 +45,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadPosts()
         print(posts)
     }
+    
+    override var inputAccessoryView: UIView? {
+        return commentBar
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+        cell.tag = indexPath.row
+        fillInCell(fill: cell, with: post, using: indexPath.row)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let comment = PFObject(className: "Comment")
+        // comment
+    }
+    
+
     
     @ objc func loadPosts() {
         let query = PFQuery(className: "Post")

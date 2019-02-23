@@ -8,6 +8,8 @@ target 'FakeInstagram' do
   # Pods for FakeInstagram
   pod "Parse"
   pod "AlamofireImage"
+  pod 'InputBarAccessoryView'
+  pod 'MessageInputBar'
 
   target 'FakeInstagramTests' do
     inherit! :search_paths

@@ -175,7 +175,7 @@
                     <navigationItem key="navigationItem" title="Pastagram" id="KA3-AI-cXh">
                         <barButtonItem key="rightBarButtonItem" title="Post" id="ZWr-6R-1r3">
                             <connections>
-                                <segue destination="ydp-Fc-XY7" kind="presentation" id="Ss5-Kd-YAQ"/>
+                                <segue destination="dBc-yS-f0s" kind="presentation" id="Ss5-Kd-YAQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -205,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="289" y="23"/>
         </scene>
-        <!--Post View Controller-->
+        <!--New Post-->
         <scene sceneID="ouw-7R-UW4">
             <objects>
                 <viewController id="ydp-Fc-XY7" customClass="PostViewController" customModule="FakeInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -214,7 +214,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Gwd-eB-XaV">
-                                <rect key="frame" x="8" y="52" width="359" height="359"/>
+                                <rect key="frame" x="8" y="96" width="359" height="359"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Gwd-eB-XaV" secondAttribute="height" id="z7W-cK-Ds3"/>
@@ -224,20 +224,12 @@
                                 </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Put it here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ecg-nU-FJx">
-                                <rect key="frame" x="8" y="419" width="359" height="30"/>
+                                <rect key="frame" x="8" y="463" width="359" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R67-0b-CNJ">
-                                <rect key="frame" x="172" y="597" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post"/>
-                                <connections>
-                                    <action selector="onPost:" destination="ydp-Fc-XY7" eventType="touchUpInside" id="FmP-XP-ika"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -247,6 +239,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AOD-OE-Z9W"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Post" id="k5J-0o-AXx">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="l3H-YW-IV6">
+                            <connections>
+                                <action selector="onCancelButton:" destination="ydp-Fc-XY7" id="cwa-Sq-4AT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="Zgj-bm-jRW">
+                            <connections>
+                                <action selector="onShareButton:" destination="ydp-Fc-XY7" id="ytK-Gt-f4x"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionField" destination="ecg-nU-FJx" id="UjV-yT-Ye0"/>
                         <outlet property="imageView" destination="Gwd-eB-XaV" id="gDb-Q4-Vz8"/>
@@ -258,6 +262,24 @@
                         <action selector="onCameraButton:" destination="ydp-Fc-XY7" id="s9d-Hl-47a"/>
                     </connections>
                 </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2900" y="22.906403940886701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pIX-Je-6P8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dBc-yS-f0s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="652-60-1He">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ydp-Fc-XY7" kind="relationship" relationship="rootViewController" id="G6d-Tb-Z6g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3yp-5v-drN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.5999999999999" y="22.906403940886701"/>
         </scene>
