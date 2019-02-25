@@ -23,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://boiling-oasis-54624.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let homeNavigationController = main.instantiateViewController(withIdentifier: "homeNavigationController")
+            window?.rootViewController = homeNavigationController
+        }
         return true
     }
 
